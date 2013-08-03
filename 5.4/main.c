@@ -22,20 +22,27 @@ int main(void)
     return 0;
 }
 
-int strend(char *s, char *t)
+int strend(char *where, char *what)
 {
-    int lent = 0;
-    while ( *t != '\0')
+    int iWhereLength = 0;
+    int iWhatLength = 0;
+    while ( *where != '\0')
     {
-        t++;
-        lent++;
+        where++;
+        iWhereLength++;
     }
-    while ( *s != '\0')
-        s++;
-        
-    while (lent--)
+    while ( *what != '\0')
     {
-        if(*--s != *--t)
+        what++;
+        iWhatLength++;
+    }
+
+    if(iWhatLength > iWhereLength)
+        return 0;
+        
+    while (iWhatLength--)
+    {
+        if(*--where != *--what)
             return 0;
     }
     return 1;
