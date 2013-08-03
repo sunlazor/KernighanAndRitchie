@@ -1,0 +1,21 @@
+!define BLANK ""
+D:\Project\C\KandR\1.9\main.obj : D:\Project\C\KandR\1.9\main.c .AUTODEPEND
+ @D:
+ cd D:\Project\C\KandR\1.9
+ *wcc386 main.c -i="C:\WATCOM/h;C:\WATCOM/h/nt" -w4 -e25 -zq -od -d2 -6r -bt&
+=nt -fo=.obj -mf
+
+D:\Project\C\KandR\1.9\ex.exe : D:\Project\C\KandR\1.9\main.obj .AUTODEPEND
+ @D:
+ cd D:\Project\C\KandR\1.9
+ @%write ex.lk1 FIL main.obj
+ @%append ex.lk1 
+!ifneq BLANK ""
+ *wlib -q -n -b ex.imp 
+ @%append ex.lk1 LIBR ex.imp
+!endif
+!ifneq BLANK ""
+ @%append ex.lk1 
+!endif
+ *wlink name ex d all sys nt op m op maxe=25 op q op symf @ex.lk1
+

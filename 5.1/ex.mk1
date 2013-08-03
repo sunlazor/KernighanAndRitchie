@@ -1,0 +1,37 @@
+!define BLANK ""
+D:\Project\C\KandR\5.1\getch.obj : D:\Project\C\KandR\5.1\getch.c .AUTODEPEN&
+D
+ @D:
+ cd D:\Project\C\KandR\5.1
+ *wcc386 getch.c -i="C:\WATCOM/h;C:\WATCOM/h/nt" -w4 -e25 -zq -od -d2 -6r -b&
+t=nt -fo=.obj -mf
+
+D:\Project\C\KandR\5.1\getint.obj : D:\Project\C\KandR\5.1\getint.c .AUTODEP&
+END
+ @D:
+ cd D:\Project\C\KandR\5.1
+ *wcc386 getint.c -i="C:\WATCOM/h;C:\WATCOM/h/nt" -w4 -e25 -zq -od -d2 -6r -&
+bt=nt -fo=.obj -mf
+
+D:\Project\C\KandR\5.1\main.obj : D:\Project\C\KandR\5.1\main.c .AUTODEPEND
+ @D:
+ cd D:\Project\C\KandR\5.1
+ *wcc386 main.c -i="C:\WATCOM/h;C:\WATCOM/h/nt" -w4 -e25 -zq -od -d2 -6r -bt&
+=nt -fo=.obj -mf
+
+D:\Project\C\KandR\5.1\ex.exe : D:\Project\C\KandR\5.1\getch.obj D:\Project\&
+C\KandR\5.1\getint.obj D:\Project\C\KandR\5.1\main.obj D:\Project\C\KandR\5.&
+1\calc.h .AUTODEPEND
+ @D:
+ cd D:\Project\C\KandR\5.1
+ @%write ex.lk1 FIL getch.obj,getint.obj,main.obj
+ @%append ex.lk1 
+!ifneq BLANK ""
+ *wlib -q -n -b ex.imp 
+ @%append ex.lk1 LIBR ex.imp
+!endif
+!ifneq BLANK ""
+ @%append ex.lk1 
+!endif
+ *wlink name ex d all sys nt op m op maxe=25 op q op symf @ex.lk1
+

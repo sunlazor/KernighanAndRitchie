@@ -1,0 +1,23 @@
+!define BLANK ""
+D:\Project\C\KandR\Tests\main.obj : D:\Project\C\KandR\Tests\main.c .AUTODEP&
+END
+ @D:
+ cd D:\Project\C\KandR\Tests
+ *wcc386 main.c -i="C:\WATCOM/h;C:\WATCOM/h/nt" -w4 -e25 -zq -od -d2 -6r -bt&
+=nt -fo=.obj -mf
+
+D:\Project\C\KandR\Tests\test.exe : D:\Project\C\KandR\Tests\main.obj .AUTOD&
+EPEND
+ @D:
+ cd D:\Project\C\KandR\Tests
+ @%write test.lk1 FIL main.obj
+ @%append test.lk1 
+!ifneq BLANK ""
+ *wlib -q -n -b test.imp 
+ @%append test.lk1 LIBR test.imp
+!endif
+!ifneq BLANK ""
+ @%append test.lk1 
+!endif
+ *wlink name test d all sys nt op m op maxe=25 op q op symf @test.lk1
+
