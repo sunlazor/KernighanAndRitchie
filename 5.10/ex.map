@@ -1,6 +1,6 @@
 Open Watcom Linker Version 1.9
 Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
-Created on:       13/08/07 13:53:43
+Created on:       13/08/07 14:39:19
 Executable Image: ex.exe
 creating a Windows NT character-mode executable
 
@@ -544,4 +544,4 @@ C:\WATCOM/lib386/nt\emu387.lib
 Stack size:  00010000 (65536.)
 Memory size:  00018f64 (102244.)
 Entry point address: 004013a2
-Link time: 00:00.87
+Link time: 00:00.56

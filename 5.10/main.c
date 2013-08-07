@@ -26,6 +26,8 @@ int main(int argc, char **argv)
     --argc;
     ++argv;
 
+//////////////Arg Control?/////////////////
+
 ///////////////////////////////////////////    
 
     while(argc)
@@ -77,7 +79,7 @@ int main(int argc, char **argv)
         }
     }
 
-    printf("result = %.0f", result);
+    printf("result = %.2f", result);
 
 ///////////////////////////////////////////    
         
