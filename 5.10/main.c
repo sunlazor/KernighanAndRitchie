@@ -14,32 +14,72 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-int main(int argc, char *argv)
+int main(int argc, char **argv)
 {
     int numbers[100];
-    char symbols[99], s;
+    char symbols[99], *s;
     int i = 0;
     int j = 0;
+    int c;
+    float result = 0;
 
     --argc;
     ++argv;
 
-    while(--argc)
+///////////////////////////////////////////    
+
+    while(argc)
     {
-        if(isdigit(*--argv))
+        if(isdigit(**argv))
         {
             s = *argv;
             numbers[i++] = atoi(s);
         }
         else
-            symbols[j++] = *argv;
+            symbols[j++] = **argv;
+
+        ++argv;
+        --argc;
     }
 
+///////////////////////////////////////////
+/*
+    c = 0;
     for(; i != 0; --i)
-        printf("%d ", numbers[i]);
+        printf("%d ", numbers[c++]);
     printf("\n");
-    for(; j != 0; --i)
-        printf("%c ", symbols[i]);
+    c = 0;
+    for(; j != 0; --j)
+        printf("%c ", symbols[c++]);
+*/
+
+///////////////////////////////////////////
+
+    result =+ numbers[--i];
+    c = 0;
+
+    while(c < j)
+    {
+        switch(symbols[c++])
+        {
+            case '+':
+                result += numbers[--i];
+                break;
+            case '-':
+                result = (numbers[--i] - result);
+                break;
+            case '*':
+                result *= numbers[--i];
+                break;
+            case '/':
+                result = (numbers[--i] / result);
+                break;                                             
+        }
+    }
+
+    printf("result = %.0f", result);
+
+///////////////////////////////////////////    
         
     return 0;
 }

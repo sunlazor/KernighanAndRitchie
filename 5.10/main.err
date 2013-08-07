@@ -1,4 +1,0 @@
-main.c(32): Warning! W102: Type mismatch (warning)
-main.c(32): Note! I2003: source conversion type is 'char '
-main.c(32): Note! I2004: target conversion type is 'char const *'
-main.c(32): Note! I2002: 'atoi' defined in: C:\WATCOM/h\stdlib.h(181)
